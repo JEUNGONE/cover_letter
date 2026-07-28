@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio — 자기소개서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F4EF;
+    --bg-line:#DBE0D9;
+    --ink:#12161C;
+    --muted:#5C6570;
+    --accent:#2F5D9C;
+    --accent-warm:#D98E2B;
+    --code-bg:#171B22;
+    --code-text:#E8EAED;
+    --code-muted:#8A93A0;
+    --card-bg:#FBFBF9;
+    --radius:3px;
+    --serif-display: 'Pretendard Variable','Pretendard',sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 31px, var(--bg-line) 31px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--serif-display);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  ::selection{background:var(--accent-warm); color:var(--ink);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .notebook{
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 24px 120px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-bottom:40px;
+    margin-bottom:8px;
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--muted);
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:28px;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#3FA66A;
+    box-shadow:0 0 0 3px rgba(63,166,106,0.18);
+    flex:none;
+  }
+  .hero h1{
+    font-size:clamp(28px,5vw,40px);
+    line-height:1.35;
+    margin:0 0 18px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .edit{
+    border-bottom:2px dashed var(--accent-warm);
+    padding-bottom:1px;
+  }
+  .role-tags{
+    display:flex; flex-wrap:wrap; gap:8px 10px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--muted);
+    margin-bottom:36px;
+  }
+  .role-tags span{
+    padding:4px 10px;
+    border:1px solid var(--bg-line);
+    border-radius:20px;
+    background:var(--card-bg);
+    white-space:nowrap;
+  }
+
+  .chart-wrap{
+    border:1px solid var(--bg-line);
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    padding:22px 20px 14px;
+  }
+  .chart-caption{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    margin:14px 2px 0;
+    display:flex;
+    justify-content:space-between;
+  }
+  .thesis-line{
+    margin-top:22px;
+    font-size:16px;
+    color:var(--muted);
+    border-left:2px solid var(--accent-warm);
+    padding-left:14px;
+  }
+
+  /* ---------- CELLS ---------- */
+  .cell{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:0 20px;
+    padding:36px 0;
+    border-top:1px solid var(--bg-line);
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .cell.in-view{opacity:1; transform:translateY(0);}
+  .exec-label{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--accent);
+    padding-top:3px;
+    white-space:nowrap;
+  }
+  .cell h2{
+    font-size:12.5px;
+    font-family:var(--mono);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    margin:0 0 14px;
+    font-weight:500;
+  }
+  .cell p{
+    margin:0 0 14px;
+    font-size:16.5px;
+  }
+  .cell p:last-child{margin-bottom:0;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{margin-bottom:18px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group-title{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono);
+    font-size:13px;
+    background:var(--code-bg);
+    color:var(--code-text);
+    padding:5px 10px;
+    border-radius:var(--radius);
+  }
+
+  /* ---------- NOTE BANNER ---------- */
+  .note{
+    font-size:13px;
+    color:var(--muted);
+    background:rgba(217,142,43,0.09);
+    border:1px dashed var(--accent-warm);
+    border-radius:var(--radius);
+    padding:10px 14px;
+    margin-bottom:22px;
+  }
+
+  /* ---------- PROJECT CARDS ---------- */
+  .project{
+    border:1px solid var(--bg-line);
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    padding:22px 22px 6px;
+    margin-bottom:24px;
+  }
+  .project:last-child{margin-bottom:0;}
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 14px;
+    margin-bottom:6px;
+  }
+  .project-head h3{
+    font-size:17.5px;
+    margin:0;
+    font-weight:700;
+  }
+  .project-period{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+  }
+  .star-grid{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:10px 14px;
+    margin:18px 0 20px;
+  }
+  .star-key{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding-top:2px;
+  }
+  .star-val{font-size:15px;}
+  .star-val.result{color:var(--accent-warm); font-weight:600;}
+  .project-stack{
+    display:flex; flex-wrap:wrap; gap:6px;
+    padding-bottom:20px;
+  }
+  .project-stack .tag{font-size:11.5px; padding:4px 8px;}
+
+  /* ---------- COLLAB ---------- */
+  .collab-list{
+    list-style:none; margin:0; padding:0;
+    display:grid; gap:12px;
+  }
+  .collab-list li{
+    padding-left:18px;
+    position:relative;
+    font-size:15.5px;
+  }
+  .collab-list li::before{
+    content:"·";
+    position:absolute; left:0; top:0;
+    color:var(--accent-warm);
+    font-weight:700;
+    font-size:20px;
+    line-height:1;
+  }
+
+  /* ---------- OUTPUT / FOOTER ---------- */
+  .output-cell{
+    grid-template-columns:64px 1fr;
+    display:grid;
+    padding-top:40px;
+    border-top:1px solid var(--bg-line);
+  }
+  .output-cell h2{
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:0.08em; margin:0 0 16px;
+  }
+  .contact-block{
+    background:var(--code-bg);
+    color:var(--code-text);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    font-family:var(--mono);
+    font-size:14px;
+  }
+  .contact-block div{margin-bottom:8px; display:flex; gap:10px;}
+  .contact-block div:last-child{margin-bottom:0;}
+  .contact-block .k{color:var(--code-muted); min-width:52px;}
+  .contact-block .v{border-bottom:1px dashed var(--accent-warm); padding-bottom:1px;}
+
+  @media (max-width:560px){
+    .cell, .output-cell{grid-template-columns:1fr;}
+    .exec-label{padding-top:0; margin-bottom:10px;}
+    .star-grid{grid-template-columns:1fr;}
+    .star-key{padding-top:0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cell{transition:none; opacity:1; transform:none;}
+    #lossPath{stroke-dashoffset:0 !important; transition:none !important;}
+    .epoch-dot{opacity:1 !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="notebook">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      portfolio.ipynb — kernel: 성장 지속 중
+    </div>
+    <h1><span class="edit">[이름을 입력하세요]</span>, 데이터에서 답을 찾는 과정을 즐기는 사람입니다</h1>
+    <div class="role-tags">
+      <span>AI 개발자</span><span>AI 엔지니어</span><span>데이터 분석가</span><span>머신러닝 엔지니어</span><span>생성형 AI 개발자</span>
+    </div>
+
+    <div class="chart-wrap">
+      <svg viewBox="0 0 640 200" width="100%" height="auto" role="img" aria-label="시행착오가 줄어드는 학습 곡선 그래프">
+        <line x1="30" y1="10" x2="30" y2="170" stroke="#DBE0D9" stroke-width="1"/>
+        <line x1="30" y1="170" x2="620" y2="170" stroke="#DBE0D9" stroke-width="1"/>
+        <path id="lossPath" d="M 40 40 C 140 70, 160 120, 230 130 C 300 140, 320 100, 390 105 C 460 110, 480 150, 560 158"
+          fill="none" stroke="#2F5D9C" stroke-width="2.5" stroke-linecap="round"/>
+        <g id="epochDots">
+          <circle class="epoch-dot" cx="40" cy="40" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="230" cy="130" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="390" cy="105" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="560" cy="158" r="4" fill="#D98E2B"/>
+        </g>
+      </svg>
+      <div class="chart-caption">
+        <span>학습 시작</span><span>머신러닝 프로젝트</span><span>생성형 AI · RAG</span><span>실전 협업</span>
+      </div>
+    </div>
+    <p class="thesis-line">매 프로젝트마다 시행착오를 줄여가며, 지금의 역량을 쌓아왔습니다.</p>
+  </header>
+
+  <!-- 자기소개 -->
+  <section class="cell">
+    <div class="exec-label">In [1]:<br>자기소개</div>
+    <div>
+      <h2>Self Introduction</h2>
+      <p>안녕하세요. 데이터 속 문제를 찾아내고 모델로 풀어내는 과정에 재미를 느끼는 AI 전공 3학년 학생입니다.</p>
+    </div>
+  </section>
+
+  <!-- 계기 -->
+  <section class="cell">
+    <div class="exec-label">In [2]:<br>계기</div>
+    <div>
+      <h2>Why AI</h2>
+      <p>처음 이 분야에 관심을 갖게 된 것은 수업에서 실제 판매 데이터를 다뤄보면서였습니다. 매출이 떨어진 이유를 숫자로 되짚어보다가, 제가 세운 가설이 실제로 맞아떨어지는 걸 보고 소름이 돋았습니다. 그 뒤로 데이터 안에 숨어 있는 패턴을 찾아 예측 모델로 만들어보고 싶다는 생각에 머신러닝과 생성형 AI를 독학하기 시작했습니다.</p>
+    </div>
+  </section>
+
+  <!-- 기술 역량 -->
+  <section class="cell">
+    <div class="exec-label">In [3]:<br>기술 역량</div>
+    <div>
+      <h2>Skills</h2>
+      <p>지금까지 Python, Pandas, NumPy로 데이터를 정리하고 Scikit-learn과 TensorFlow로 모델을 학습시키는 과정을 다뤄왔습니다. 최근에는 LangChain과 OpenAI API, FAISS를 활용한 RAG 구조에 관심을 갖고 문서 기반 질의응답 시스템을 직접 구현해보며 프롬프트 엔지니어링 감각도 함께 익혔습니다. Git과 GitHub로 버전을 관리하고, Streamlit으로 결과물을 눈으로 확인할 수 있는 형태까지 만드는 것을 개발 루틴으로 삼고 있습니다.</p>
+
+      <div class="skill-group">
+        <div class="skill-group-title">언어 / 분석</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">머신러닝 / 딥러닝</div>
+        <div class="tag-row">
+          <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">생성형 AI / LLM</div>
+        <div class="tag-row">
+          <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">프롬프트 엔지니어링</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">개발 / 배포</div>
+        <div class="tag-row">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로젝트 & 문제해결 -->
+  <section class="cell">
+    <div class="exec-label">In [4]:<br>프로젝트</div>
+    <div>
+      <h2>Projects · Problem Solving</h2>
+      <p class="note">※ 아래 프로젝트명·기간·수치는 예시입니다. 실제 진행한 프로젝트 정보로 교체해주세요.</p>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>고객 이탈 예측 모델</h3>
+          <span class="project-period">2025.03 – 2025.06</span>
+        </div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span>
+        </div>
+        <div class="star-grid">
+          <div class="star-key">목표</div><div class="star-val">실제 서비스 이용 로그 데이터를 바탕으로 이탈 가능성이 높은 고객을 미리 예측하는 것이 목표였습니다.</div>
+          <div class="star-key">내 역할</div><div class="star-val">데이터 전처리와 모델 학습, 성능 검증을 맡았습니다.</div>
+          <div class="star-key">어려웠던 점</div><div class="star-val">모델 정확도가 기대만큼 나오지 않아 원인을 살펴보니, 결측치 처리 방식이 데이터 특성과 맞지 않는다는 것을 발견했습니다.</div>
+          <div class="star-key">해결 방법</div><div class="star-val">여러 결측치 처리 방식을 비교 검증하며 로직을 다시 설계했습니다.</div>
+          <div class="star-key">성과</div><div class="star-val result">예측 정확도를 [예: 78% → 91%]까지 끌어올렸습니다.</div>
+          <div class="star-key">배운 점</div><div class="star-val">그날 이후로 모델부터 바꾸기 전에 데이터를 한 번 더 들여다보는 습관이 생겼습니다.</div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>사내 문서 기반 RAG 챗봇</h3>
+          <span class="project-period">2025.09 – 2025.12 · 3인 팀 프로젝트</span>
+        </div>
+        <div class="project-stack">
+          <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">Streamlit</span>
+        </div>
+        <div class="star-grid">
+          <div class="star-key">목표</div><div class="star-val">사내 문서를 검색해 정확한 답변을 생성하는 RAG 챗봇을 만드는 것이 목표였습니다.</div>
+          <div class="star-key">내 역할</div><div class="star-val">문서 임베딩과 검색 파트를 맡았습니다.</div>
+          <div class="star-key">어려웠던 점</div><div class="star-val">검색 결과와 실제 필요한 답변이 어긋나는 문제가 반복됐습니다.</div>
+          <div class="star-key">해결 방법</div><div class="star-val">청크 분할 기준을 바꿔보고 프롬프트를 여러 번 수정하며 개선했습니다.</div>
+          <div class="star-key">성과</div><div class="star-val result">답변 정확도를 눈에 띄게 개선했습니다.</div>
+          <div class="star-key">배운 점</div><div class="star-val">검색 품질은 모델보다 문서를 어떻게 자르고 정리하느냐에 더 크게 좌우된다는 것을 배웠습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 협업 -->
+  <section class="cell">
+    <div class="exec-label">In [5]:<br>협업</div>
+    <div>
+      <h2>Collaboration</h2>
+      <p>RAG 챗봇 프로젝트를 진행하며 팀원들과 매주 진행 상황을 공유했습니다. 의견이 갈릴 때는 각자 근거를 데이터로 보여주며 논의했고, 그 덕분에 감정 소모 없이 더 나은 방향을 빠르게 찾아갈 수 있었습니다.</p>
+      <ul class="collab-list">
+        <li>매주 진행 상황을 공유하며 방향을 맞춰갑니다.</li>
+        <li>의견이 다를 땐 감이 아니라 데이터와 근거로 이야기합니다.</li>
+        <li>막힌 부분은 혼자 끌어안지 않고 빠르게 공유합니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 목표 & 지원동기 -->
+  <section class="cell">
+    <div class="exec-label">In [6]:<br>목표 · 지원동기</div>
+    <div>
+      <h2>Goals & Motivation</h2>
+      <p>앞으로는 이론에 머무르지 않고 실제 서비스에 적용 가능한 AI를 만드는 사람이 되고 싶습니다. 데이터를 다루는 힘과 최신 생성형 AI 기술을 함께 갖춘 개발자로 성장하는 것이 목표입니다.</p>
+      <p>혼자 만든 프로젝트로는 알 수 없었던 진짜 문제들을 이곳에서 부딪혀보고, 제가 쌓아온 역량을 더 다듬으며 함께 성장하고 싶습니다.</p>
+    </div>
+  </section>
+
+  <!-- 연락처 -->
+  <footer class="output-cell">
+    <div class="exec-label">Out[6]:</div>
+    <div>
+      <h2>Contact</h2>
+      <div class="contact-block">
+        <div><span class="k">Email</span><span class="v">you@email.com</span></div>
+        <div><span class="k">GitHub</span><span class="v">github.com/username</span></div>
+        <div><span class="k">Blog</span><span class="v">notion.site/username</span></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // hero loss-curve draw-in
+  const path = document.getElementById('lossPath');
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  path.style.transition = 'stroke-dashoffset 1.6s ease';
+  requestAnimationFrame(() => { path.style.strokeDashoffset = 0; });
+
+  document.querySelectorAll('.epoch-dot').forEach((dot, i) => {
+    dot.style.opacity = 0;
+    dot.style.transition = 'opacity .4s ease';
+    setTimeout(() => { dot.style.opacity = 1; }, 500 + i * 350);
+  });
+
+  // scroll reveal for notebook cells
+  const cells = document.querySelectorAll('.cell');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.15 });
+  cells.forEach(c => io.observe(c));
+</script>
+
+</body>
+</html>
