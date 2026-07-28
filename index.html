@@ -3,92 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>내 웹 포트폴리오</title>
-<link rel="stylesheet" href="style.css">
+<title>AI Portfolio — 자기소개서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<div class="notebook">
+
+  <!-- HERO -->
   <header class="hero">
-    <div class="container">
-      <p class="eyebrow">AI 전공 · 3학년</p>
-      <h1>데이터로 문제를 풀어가는 사람</h1>
-      <p class="hero-desc">
-        데이터 속 패턴을 찾아 모델로 풀어내는 과정에 재미를 느끼는 AI 전공생입니다.
-        머신러닝과 생성형 AI를 함께 다루며, 실제 서비스에 적용 가능한 AI를 만드는 것이 목표입니다.
-      </p>
-      <a class="contact-link" href="mailto:busan025@ormbiz.co.kr">busan025@ormbiz.co.kr</a>
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      portfolio.ipynb — kernel: 성장 지속 중
     </div>
+    <h1><span class="edit">손정원</span>, 데이터에서 답을 찾는 과정을 즐기는 사람입니다</h1>
+    <div class="role-tags">
+      <span>AI 개발자</span><span>AI 엔지니어</span><span>데이터 분석가</span><span>머신러닝 엔지니어</span><span>생성형 AI 개발자</span>
+    </div>
+
+    <div class="chart-wrap">
+      <svg viewBox="0 0 640 200" width="100%" height="auto" role="img" aria-label="시행착오가 줄어드는 학습 곡선 그래프">
+        <line x1="30" y1="10" x2="30" y2="170" stroke="#DBE0D9" stroke-width="1"/>
+        <line x1="30" y1="170" x2="620" y2="170" stroke="#DBE0D9" stroke-width="1"/>
+        <path id="lossPath" d="M 40 40 C 140 70, 160 120, 230 130 C 300 140, 320 100, 390 105 C 460 110, 480 150, 560 158"
+          fill="none" stroke="#2F5D9C" stroke-width="2.5" stroke-linecap="round"/>
+        <g id="epochDots">
+          <circle class="epoch-dot" cx="40" cy="40" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="230" cy="130" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="390" cy="105" r="4" fill="#D98E2B"/>
+          <circle class="epoch-dot" cx="560" cy="158" r="4" fill="#D98E2B"/>
+        </g>
+      </svg>
+      <div class="chart-caption">
+        <span>학습 시작</span><span>머신러닝 프로젝트</span><span>생성형 AI · RAG</span><span>실전 협업</span>
+      </div>
+    </div>
+    <p class="thesis-line">매 프로젝트마다 시행착오를 줄여가며, 지금의 역량을 쌓아왔습니다.</p>
   </header>
 
-  <main class="container">
+  <!-- 자기소개 -->
+  <section class="cell">
+    <div class="exec-label">In [1]:<br>자기소개</div>
+    <div>
+      <h2>Self Introduction</h2>
+      <p>안녕하세요. 데이터 속 문제를 찾아내고 모델로 풀어내는 과정에 재미를 느끼는 AI 전공 3학년 학생입니다.</p>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        수업에서 실제 판매 데이터를 다뤄보며 이 분야에 관심을 갖게 되었습니다.
-        단순한 숫자 나열처럼 보이던 데이터 안에 고객의 행동 패턴이 숨어 있다는 사실이 흥미로웠고,
-        그 패턴을 예측 모델로 만들어보고 싶다는 생각에 머신러닝과 생성형 AI를 독학하기 시작했습니다.
-        Python, Pandas, NumPy로 데이터를 정리하고 Scikit-learn과 TensorFlow로 모델을 학습시키는 과정을 다뤄왔으며,
-        최근에는 LangChain과 OpenAI API, FAISS를 활용한 RAG 구조에도 관심을 갖고 직접 구현해보고 있습니다.
-      </p>
-    </section>
+  <!-- 계기 -->
+  <section class="cell">
+    <div class="exec-label">In [2]:<br>계기</div>
+    <div>
+      <h2>Why AI</h2>
+      <p>처음 이 분야에 관심을 갖게 된 것은 수업에서 실제 판매 데이터를 다뤄보면서였습니다. 단순한 숫자 나열처럼 보이던 데이터 안에 고객의 행동 패턴이 숨어 있다는 사실이 신기했고, 그 패턴을 찾아 예측 모델로 만들어보고 싶다는 생각에 머신러닝과 생성형 AI를 독학하기 시작했습니다.</p>
+    </div>
+  </section>
 
-    <section id="skills">
+  <!-- 기술 역량 -->
+  <section class="cell">
+    <div class="exec-label">In [3]:<br>기술 역량</div>
+    <div>
       <h2>Skills</h2>
-      <ul class="skill-list">
-        <li>Python</li>
-        <li>Pandas / NumPy</li>
-        <li>Scikit-learn</li>
-        <li>TensorFlow</li>
-        <li>LangChain</li>
-        <li>OpenAI API</li>
-        <li>FAISS</li>
-        <li>Git / GitHub</li>
-        <li>Streamlit</li>
-      </ul>
-    </section>
+      <p>지금까지 Python, Pandas, NumPy로 데이터를 정리하고 Scikit-learn과 TensorFlow로 모델을 학습시키는 과정을 다뤄왔습니다. 최근에는 LangChain과 OpenAI API, FAISS를 활용한 RAG 구조에 관심을 갖고 문서 기반 질의응답 시스템을 직접 구현해보며 프롬프트 엔지니어링 감각도 함께 익혔습니다. Git과 GitHub로 버전을 관리하고, Streamlit으로 결과물을 눈으로 확인할 수 있는 형태까지 만드는 것을 개발 루틴으로 삼고 있습니다.</p>
 
-    <section id="projects">
-      <h2>Projects</h2>
+      <div class="skill-group">
+        <div class="skill-group-title">언어 / 분석</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">머신러닝 / 딥러닝</div>
+        <div class="tag-row">
+          <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">생성형 AI / LLM</div>
+        <div class="tag-row">
+          <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">프롬프트 엔지니어링</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">개발 / 배포</div>
+        <div class="tag-row">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <article class="project-card">
-        <h3>고객 이탈 예측 프로젝트</h3>
-        <p>
-          실제 서비스 이용 로그 데이터를 바탕으로 이탈 가능성이 높은 고객을 미리 예측하는 프로젝트입니다.
-          초기에는 모델 정확도가 기대만큼 나오지 않았는데, 원인을 분석해보니 결측치 처리 방식이 데이터 특성과
-          맞지 않았다는 것을 발견했습니다. 여러 방식을 비교 검증하며 결측치 처리 로직을 다시 설계했고,
-          그 결과 예측 정확도를 개선할 수 있었습니다.
-        </p>
-        <p class="tags">Python · Pandas · Scikit-learn</p>
-      </article>
+  <!-- 프로젝트 & 문제해결 -->
+  <section class="cell">
+    <div class="exec-label">In [4]:<br>프로젝트</div>
+    <div>
+      <h2>Projects · Problem Solving</h2>
 
-      <article class="project-card">
-        <h3>사내 문서 기반 RAG 챗봇</h3>
-        <p>
-          3명이 함께한 팀 프로젝트로, 문서 임베딩과 검색 파트를 담당했습니다.
-          검색 결과와 실제 필요한 답변이 어긋나는 문제를 해결하기 위해 청크 분할 기준을 바꾸고
-          프롬프트를 여러 차례 수정하며 답변 정확도를 개선했습니다.
-        </p>
-        <p class="tags">LangChain · OpenAI API · FAISS</p>
-      </article>
+      <div class="project">
+        <div class="project-head">
+          <h3>고객 이탈 예측 프로젝트</h3>
+          <span class="project-period">2025.03 – 2025.06</span>
+        </div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span>
+        </div>
+        <div class="star-grid">
+          <div class="star-key">목표</div><div class="star-val">실제 서비스 이용 로그 데이터를 바탕으로 이탈 가능성이 높은 고객을 미리 예측하는 것이 목표였습니다.</div>
+          <div class="star-key">어려웠던 점</div><div class="star-val">모델 정확도가 기대만큼 나오지 않아 원인을 살펴보니, 결측치 처리 방식이 데이터 특성과 맞지 않는다는 것을 발견했습니다.</div>
+          <div class="star-key">해결 방법</div><div class="star-val">여러 결측치 처리 방식을 비교 검증하며 로직을 다시 설계했습니다.</div>
+          <div class="star-key">성과</div><div class="star-val result">예측 정확도를 눈에 띄게 끌어올렸습니다.</div>
+          <div class="star-key">배운 점</div><div class="star-val">모델 성능은 알고리즘보다 데이터를 이해하는 힘에서 나온다는 점을 배웠습니다.</div>
+        </div>
+      </div>
 
-    </section>
+      <div class="project">
+        <div class="project-head">
+          <h3>사내 문서 기반 RAG 챗봇</h3>
+          <span class="project-period">2025.09 – 2025.12 · 3인 팀 프로젝트</span>
+        </div>
+        <div class="project-stack">
+          <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">Streamlit</span>
+        </div>
+        <div class="star-grid">
+          <div class="star-key">목표</div><div class="star-val">사내 문서를 검색해 정확한 답변을 생성하는 RAG 챗봇을 만드는 것이 목표였습니다.</div>
+          <div class="star-key">내 역할</div><div class="star-val">문서 임베딩과 검색 파트를 맡았습니다.</div>
+          <div class="star-key">어려웠던 점</div><div class="star-val">검색 결과와 실제 필요한 답변이 어긋나는 문제가 반복됐습니다.</div>
+          <div class="star-key">해결 방법</div><div class="star-val">팀원들과 매주 진행 상황을 공유하며 청크 분할 기준을 바꿔보고 프롬프트를 여러 번 수정했습니다.</div>
+          <div class="star-key">성과</div><div class="star-val result">답변 정확도를 눈에 띄게 개선했습니다.</div>
+          <div class="star-key">배운 점</div><div class="star-val">의견이 갈릴 때 각자 근거를 데이터로 보여주면 감정 소모 없이 더 나은 방향을 빠르게 찾을 수 있다는 것을 배웠습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="goal">
-      <h2>Goal</h2>
-      <p>
-        이론에 머무르지 않고 실제 서비스에 적용 가능한 AI를 만드는 사람이 되고 싶습니다.
-        데이터를 다루는 힘과 최신 생성형 AI 기술을 함께 갖춘 개발자로 성장하는 것이 목표입니다.
-      </p>
-    </section>
+  <!-- 목표 & 지원동기 -->
+  <section class="cell">
+    <div class="exec-label">In [5]:<br>목표 · 지원동기</div>
+    <div>
+      <h2>Goals & Motivation</h2>
+      <p>앞으로는 이론에 머무르지 않고 실제 서비스에 적용 가능한 AI를 만드는 사람이 되고 싶습니다. 데이터를 다루는 힘과 최신 생성형 AI 기술을 함께 갖춘 개발자로 성장하는 것이 목표입니다. 실전 데이터와 문제를 다루며 배울 수 있는 환경에서, 제가 쌓아온 역량을 더 다듬고 함께 성장하고 싶습니다.</p>
+    </div>
+  </section>
 
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 My Portfolio. Built while learning Git &amp; GitHub.</p>
+  <!-- 연락처 -->
+  <footer class="output-cell">
+    <div class="exec-label">Out[5]:</div>
+    <div>
+      <h2>Contact</h2>
+      <div class="contact-block">
+        <div><span class="k">Email</span><span class="v">busan025@ormbiz.co.kr</span></div>
+        <div><span class="k">GitHub</span><span class="v">github.com/JEUNGONE</span></div>
+      </div>
     </div>
   </footer>
+
+</div>
+
+<script>
+  // hero loss-curve draw-in
+  const path = document.getElementById('lossPath');
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  path.style.transition = 'stroke-dashoffset 1.6s ease';
+  requestAnimationFrame(() => { path.style.strokeDashoffset = 0; });
+
+  document.querySelectorAll('.epoch-dot').forEach((dot, i) => {
+    dot.style.opacity = 0;
+    dot.style.transition = 'opacity .4s ease';
+    setTimeout(() => { dot.style.opacity = 1; }, 500 + i * 350);
+  });
+
+  // scroll reveal for notebook cells
+  const cells = document.querySelectorAll('.cell');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.15 });
+  cells.forEach(c => io.observe(c));
+</script>
 
 </body>
 </html>
