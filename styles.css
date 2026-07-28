@@ -150,6 +150,48 @@ a{color:var(--accent-dark);}
 }
 .cell p:last-child{margin-bottom:0;}
 
+/* ---------- TIMELINE ---------- */
+.timeline{
+  list-style:none;
+  margin:0;
+  padding:0 0 0 20px;
+  border-left:2px solid var(--line);
+}
+.timeline-item{
+  position:relative;
+  padding:0 0 28px 24px;
+}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-27px;
+  top:4px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--accent);
+  border:2px solid var(--card-bg);
+  box-shadow:0 0 0 2px var(--line);
+}
+.timeline-date{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--accent-dark);
+  margin-bottom:6px;
+}
+.timeline-body h3{
+  font-size:16.5px;
+  margin:0 0 6px;
+  font-weight:700;
+  color:var(--ink);
+}
+.timeline-body p{
+  margin:0;
+  font-size:15px;
+  color:#464B52;
+}
+
 /* ---------- SKILLS ---------- */
 .skill-group{margin-bottom:18px;}
 .skill-group:last-child{margin-bottom:0;}
@@ -279,6 +321,9 @@ a{color:var(--accent-dark);}
   .hero{padding:64px 28px 72px;}
   .cell, .output-cell{grid-template-columns:1fr; padding:26px 22px;}
   .exec-label{padding-top:0; margin-bottom:12px;}
+  .timeline{padding-left:14px;}
+  .timeline-item{padding-left:18px;}
+  .timeline-item::before{left:-21px;}
 }
 
 @media (max-width:560px){
