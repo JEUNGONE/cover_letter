@@ -206,6 +206,17 @@ a{color:var(--accent-dark);}
   color:#464B52;
 }
 
+/* ---------- ABOUT (unified block) ---------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:0 40px;
+}
+.about-skills{
+  border-left:1px solid var(--line);
+  padding-left:32px;
+}
+
 /* ---------- SKILLS ---------- */
 .skill-group{margin-bottom:18px;}
 .skill-group:last-child{margin-bottom:0;}
@@ -350,6 +361,8 @@ a{color:var(--accent-dark);}
   .project, .project--alt-b{grid-template-columns:1fr;}
   .project--alt-b .project-meta,
   .project--alt-b .project-detail{order:initial;}
+  .about-grid{grid-template-columns:1fr; gap:28px 0;}
+  .about-skills{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:24px;}
 }
 
 @media (max-width:560px){

@@ -82,53 +82,41 @@
     </div>
   </section>
 
-  <!-- 자기소개 -->
-  <section class="cell">
-    <div class="exec-label">In [1]:<br>자기소개</div>
-    <div>
-      <h2>Self Introduction</h2>
-      <p>안녕하세요. 데이터 속 문제를 찾아내고 모델로 풀어내는 과정에 재미를 느끼는 AI 전공 3학년 학생입니다.</p>
-    </div>
-  </section>
-
-  <!-- 계기 -->
-  <section class="cell">
-    <div class="exec-label">In [2]:<br>계기</div>
-    <div>
-      <h2>Why AI</h2>
-      <p>처음 이 분야에 관심을 갖게 된 것은 수업에서 실제 판매 데이터를 다뤄보면서였습니다. 단순한 숫자 나열처럼 보이던 데이터 안에 고객의 행동 패턴이 숨어 있다는 사실이 신기했고, 그 패턴을 찾아 예측 모델로 만들어보고 싶다는 생각에 머신러닝과 생성형 AI를 독학하기 시작했습니다.</p>
-    </div>
-  </section>
-
-  <!-- 기술 역량 -->
-  <section class="cell">
-    <div class="exec-label">In [3]:<br>기술 역량</div>
-    <div>
-      <h2>Skills</h2>
-      <p>지금까지 Python, Pandas, NumPy로 데이터를 정리하고 Scikit-learn과 TensorFlow로 모델을 학습시키는 과정을 다뤄왔습니다. 최근에는 LangChain과 OpenAI API, FAISS를 활용한 RAG 구조에 관심을 갖고 문서 기반 질의응답 시스템을 직접 구현해보며 프롬프트 엔지니어링 감각도 함께 익혔습니다. Git과 GitHub로 버전을 관리하고, Streamlit으로 결과물을 눈으로 확인할 수 있는 형태까지 만드는 것을 개발 루틴으로 삼고 있습니다.</p>
-
-      <div class="skill-group">
-        <div class="skill-group-title">언어 / 분석</div>
-        <div class="tag-row">
-          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
-        </div>
+  <!-- About Me: 자기소개 + 계기 + 기술 역량 통합 블록 -->
+  <section class="cell about-unified">
+    <div class="exec-label">In [1]:<br>About Me</div>
+    <div class="about-grid">
+      <div class="about-story">
+        <h2>Self Introduction &amp; Why AI</h2>
+        <p>안녕하세요. 데이터 속 문제를 찾아내고 모델로 풀어내는 과정에 재미를 느끼는 AI 전공 3학년 학생입니다.</p>
+        <p>처음 이 분야에 관심을 갖게 된 것은 수업에서 실제 판매 데이터를 다뤄보면서였습니다. 단순한 숫자 나열처럼 보이던 데이터 안에 고객의 행동 패턴이 숨어 있다는 사실이 신기했고, 그 패턴을 찾아 예측 모델로 만들어보고 싶다는 생각에 머신러닝과 생성형 AI를 독학하기 시작했습니다.</p>
+        <p>지금까지 Python, Pandas, NumPy로 데이터를 정리하고 Scikit-learn과 TensorFlow로 모델을 학습시키는 과정을 다뤄왔습니다. 최근에는 LangChain과 OpenAI API, FAISS를 활용한 RAG 구조에 관심을 갖고 문서 기반 질의응답 시스템을 직접 구현해보며 프롬프트 엔지니어링 감각도 함께 익혔습니다. Git과 GitHub로 버전을 관리하고, Streamlit으로 결과물을 눈으로 확인할 수 있는 형태까지 만드는 것을 개발 루틴으로 삼고 있습니다.</p>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">머신러닝 / 딥러닝</div>
-        <div class="tag-row">
-          <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+      <div class="about-skills">
+        <h2>Skills</h2>
+        <div class="skill-group">
+          <div class="skill-group-title">언어 / 분석</div>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+          </div>
         </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">생성형 AI / LLM</div>
-        <div class="tag-row">
-          <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">프롬프트 엔지니어링</span>
+        <div class="skill-group">
+          <div class="skill-group-title">머신러닝 / 딥러닝</div>
+          <div class="tag-row">
+            <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+          </div>
         </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">개발 / 배포</div>
-        <div class="tag-row">
-          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span>
+        <div class="skill-group">
+          <div class="skill-group-title">생성형 AI / LLM</div>
+          <div class="tag-row">
+            <span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">FAISS</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">프롬프트 엔지니어링</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">개발 / 배포</div>
+          <div class="tag-row">
+            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span>
+          </div>
         </div>
       </div>
     </div>
